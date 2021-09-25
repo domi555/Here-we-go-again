@@ -1,6 +1,6 @@
 <template>
   <v-main>
-    <div class="d-flex flex-wrap justify-center">
+    <div class="d-flex flex-wrap justify-center mt-4">
       <CarCard
         v-for="car in cars"
         :key="car.id"

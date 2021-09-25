@@ -2,7 +2,7 @@
   "cars": [
     {
       "id": 1,
-      "title": "Top Deal Of Week!",
+      "title": "Top Deal Of Week! RESERVED",
       "price": "189.455 $",
       "image": "http://localhost:3000/images/car1.png",
       "miles": 11321,
