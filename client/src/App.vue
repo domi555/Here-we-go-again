@@ -1,16 +1,39 @@
 <template>
   <v-app>
-    <v-main>
-      <v-container>
-        <p class="text-h2 text-center">Viel Erfolg!</p>
-      </v-container>
-    </v-main>
+    <LogoBar></LogoBar>
+    <CarCards :cars="cars" @refresh="loadCars"></CarCards>
   </v-app>
 </template>
 
 <script>
+import LogoBar from '@/components/LogoBar.vue';
+import CarCards from '@/components/CarCards.vue';
+import axios from 'axios';
+
 export default {
   name: 'App',
-  data: () => ({}),
+  components: {
+    LogoBar,
+    CarCards,
+  },
+  async created() {
+    await this.loadCars();
+  },
+  data: () => ({
+    cars: null,
+  }),
+  methods: {
+    async loadCars() {
+      try {
+        const result = await axios({
+          url: 'http://localhost:3000/cars',
+          method: 'get',
+        });
+        this.cars = result.data;
+      } catch {
+        console.error('Error');
+      }
+    },
+  },
 };
 </script>
